@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/neopixel_pio.uf2'
-elf = 'build/neopixel_pio.c.elf'
+firmware = 'build/BitDogLab_LED_Counter.uf2'
+elf = 'build/BitDogLab_LED_Counter.c.elf'
