@@ -1,3 +1,17 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.1.0)
+set(toolchainVersion 13_2_Rel1)
+set(picotoolVersion 2.1.0)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -16,14 +30,14 @@ else()
     set(USERHOME $ENV{HOME})
 endif()
 set(sdkVersion 2.1.0)
-set(toolchainVersion 13_3_Rel1)
+set(toolchainVersion 13_2_Rel1)
 set(picotoolVersion 2.1.0)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico_w CACHE STRING "Board type")
+set(PICO_BOARD pico CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -40,6 +54,9 @@ add_executable(BitDogLab_LED_Counter BitDogLab_LED_Counter.c )
 pico_set_program_name(BitDogLab_LED_Counter "BitDogLab_LED_Counter")
 pico_set_program_version(BitDogLab_LED_Counter "0.1")
 
+# Generate PIO header
+pico_generate_pio_header(BitDogLab_LED_Counter ${CMAKE_CURRENT_LIST_DIR}/ws2818b.pio)
+
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(BitDogLab_LED_Counter 1)
 pico_enable_stdio_usb(BitDogLab_LED_Counter 1)
@@ -50,12 +67,16 @@ target_link_libraries(BitDogLab_LED_Counter
 
 # Add the standard include files to the build
 target_include_directories(BitDogLab_LED_Counter PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+  ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(BitDogLab_LED_Counter 
-        
+target_link_libraries(BitDogLab_LED_Counter
+        hardware_pio
+        hardware_clocks
+        hardware_pwm
+        hardware_adc
+        pico_bootrom
         )
 
 pico_add_extra_outputs(BitDogLab_LED_Counter)
