@@ -9,7 +9,7 @@
 void printNum()
 {
     npWrite();
-    sleep_ms(2000);
+    //sleep_ms(2000);
     npClear();
 }
 
