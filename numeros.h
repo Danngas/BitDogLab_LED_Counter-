@@ -4,7 +4,7 @@
 // AQUI ESTA O MAPEAMENTO DE TODOS OS NUMEROS DE 0 A 9
 // por padrao foi definido a exibicao dos nuemros na cor VERMELHA
 
-#define intensidade 1
+#define intensidade 0.01
 
 void printNum()
 {
