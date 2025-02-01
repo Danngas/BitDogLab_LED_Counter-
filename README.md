@@ -1,4 +1,4 @@
-# BitDogLab LED Counter  
+# 🎛️ Projeto: Matriz de LEDs com Incremento e Decremento
 
 ## 📌 Descrição  
 
@@ -14,6 +14,25 @@ O **BitDogLab LED Counter** é um projeto desenvolvido para explorar o uso de **
 Este projeto foi criado para consolidar conceitos sobre **interrupções em microcontroladores**, controle de LEDs endereçáveis e **debouncing de botões**, aplicando boas práticas de programação embarcada.  
 
 ---
+
+Este projeto utiliza uma matriz de LEDs controlada por um microcontrolador RP2040 (Raspberry Pi Pico) para exibir números de 0 a 9. O número pode ser alterado por meio de dois botões físicos:
+
+Botão A: Incrementa o número exibido.
+Botão B: Decrementa o número exibido.
+Além disso, um LED vermelho pisca continuamente para indicar que o sistema está ativo.
+
+## 📌 Funcionalidades
+
+✔️ Exibição de números na matriz de LEDs usando WS2812.
+
+✔️ Controle de incremento e decremento através de botões físicos.
+
+✔️ Utilização de interrupções para capturar eventos dos botões.
+
+✔️ Implementação de debounce para evitar leituras erradas.
+
+✔️ Piscar do LED vermelho a cada 200ms como feedback visual.
+
 
 ## 📁 Estrutura do Projeto  
 
@@ -32,6 +51,25 @@ O programa foi organizado da seguinte forma:
 - `diagram.json` – **Diagrama de conexão** dos componentes.  
 - `CMakeLists.txt` – **Configuração do CMake** para compilação do projeto.  
 - `piskel_convert.c` – **Arquivo responsável pela conversão das matrizes de animações** para o formato necessário ao projeto.
+
+
+## 🛠️ Estrutura do Código
+O código principal está em main.c e segue esta estrutura:
+
+### main()
+
+* Inicializa os pinos do LED, botões e matriz de LEDs.
+* Configura as interrupções para os botões A e B.
+* Controla a atualização da matriz de LEDs com base no botão pressionado.
+### blink_red()
+
+* Alterna o estado do LED vermelho a cada 200ms.
+### gpio_irq_handler()
+
+* Captura a interrupção dos botões e define uma variável auxiliar para identificar qual botão foi pressionado.
+### Num(int num) (definida em numeros.h)
+
+* Atualiza a matriz de LEDs para exibir o número correspondente.
 
 
 
