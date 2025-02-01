@@ -17,8 +17,9 @@ Este projeto foi criado para consolidar conceitos sobre **interrupções em micr
 
 Este projeto utiliza uma matriz de LEDs controlada por um microcontrolador RP2040 (Raspberry Pi Pico) para exibir números de 0 a 9. O número pode ser alterado por meio de dois botões físicos:
 
-Botão A: Incrementa o número exibido.
-Botão B: Decrementa o número exibido.
+* Botão A: Incrementa o número exibido.  
+* Botão B: Decrementa o número exibido.
+  
 Além disso, um LED vermelho pisca continuamente para indicar que o sistema está ativo.
 
 ## 📌 Funcionalidades
