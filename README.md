@@ -31,6 +31,9 @@ O programa foi organizado da seguinte forma:
 - `wokwi.toml` – **Configuração do projeto** para simulação no Wokwi.  
 - `diagram.json` – **Diagrama de conexão** dos componentes.  
 - `CMakeLists.txt` – **Configuração do CMake** para compilação do projeto.  
+- `piskel_convert.c` – **Arquivo responsável pela conversão das matrizes de animações** para o formato necessário ao projeto.
+
+
 
 ---
 
@@ -81,6 +84,41 @@ Copiar o arquivo .uf2 gerado para o drive da placa
 
 Pressionar os botões físicos para alterar a exibição dos números
 Observar os efeitos de LED
+
+## 🎨 Como Desenhar as Animações
+
+🖌️ **Crie animações com PiskelApp:**
+
+1. **Acesse o site de criação de animações:**  
+   Use o [PiskelApp](https://www.piskelapp.com/) para criar suas animações.
+
+2. **Crie suas animações:**  
+   Utilize o PiskelApp para desenhar as animações desejadas. Após concluir, **exporte o arquivo `.c`**.
+
+3. **Copie as matrizes das animações:**  
+   No arquivo exportado, localize e copie as matrizes das animações.
+
+4. **Abra o arquivo `piskel_convert.c`:**  
+   Este arquivo ajudará no processo de conversão das matrizes para o formato necessário.
+
+5. **Cole suas matrizes:**  
+   Cole as matrizes copiadas do arquivo `.c` dentro do arquivo `piskel_convert.c`.
+
+6. **Ajuste o parâmetro `NUMERO_DE_IMAGENS`:**  
+   No arquivo `piskel_convert.c`, ajuste o valor de `NUMERO_DE_IMAGENS` para a quantidade de matrizes que sua animação possui.
+
+7. **Gere as matrizes e copie do terminal:**  
+   Após ajustar o parâmetro, execute o processo para gerar as matrizes. Copie as matrizes resultantes do terminal.
+
+8. **Cole as matrizes no arquivo `numeros.h`:**  
+   Cole as matrizes geradas no arquivo `numeros.h`. Caso prefira, você pode criar sua própria biblioteca de animações.
+
+---
+
+🎥 **Link do vídeo tutorial**  
+Confira o vídeo tutorial que ensina como realizar esse processo:  
+[A maneira mais fácil de usar a matriz de LEDs da BitDogLab](https://youtu.be/chQdNiFmVm0?si=zNy5oCgk8n1nwatw)
+
 
 ## 📜 Licença  
 
