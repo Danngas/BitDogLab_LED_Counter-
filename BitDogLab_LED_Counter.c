@@ -79,6 +79,7 @@ void gpio_irq_handler(uint gpio, uint32_t events)
     // Verifica se passou tempo suficiente desde o último evento (200ms de debounce)
     if (current_time - last_time > 200000)
     {
+         printf("Interrupção ocorreu no pino %d, no evento %d\n", gpio, events);
         last_time = current_time; // Atualiza o tempo do último evento
 
         // Verifica qual botão foi pressionado e define o valor de AUXBUTON

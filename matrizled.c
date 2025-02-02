@@ -119,7 +119,7 @@ void desenhaSprite(int matriz[5][5][3], float intensidade)
       npSetLED(posicao, r, g, b);
 
       // Exiba os valores para depuração
-      printf("\n%i %i %i", r, g, b);
+     // printf("\n%i %i %i", r, g, b);
     }
   }
 }
