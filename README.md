@@ -1,5 +1,8 @@
 # 🎛️ Projeto: Matriz de LEDs com Incremento e Decremento
 (DANIEL SILVA DE SOUZA - DANNGAS)
+
+### [Video Demonstrativo do Projeto](https://youtu.be/tKaYC27xIV0)
+
 ## 📌 Descrição  
 
 O **BitDogLab LED Counter** é um projeto desenvolvido para explorar o uso de **interrupções (IRQ)** em microcontroladores RP2040. Ele utiliza **botões físicos** para controlar a exibição de números em uma **matriz de LEDs WS2812**, implementando **debouncing via software** e manipulação de **LEDs RGB comuns**.  
